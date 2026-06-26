@@ -21,7 +21,9 @@
     "runx doctor status: success, errors=0, warnings=0",
     "local runx harness attempted with runx-cli 0.6.13 on Windows; blocked by receipt store os error 87",
     "github actions runx harness status: passed",
-    "github actions dogfood receipt_ref: runx:receipt:sha256:5f9afd29fa8f0352e70491f991f9b47e6156a9f714986d3a88b762b1a049a489"
+    "github actions dogfood receipt_ref: runx:receipt:sha256:5f9afd29fa8f0352e70491f991f9b47e6156a9f714986d3a88b762b1a049a489",
+    "github actions runx harness status: passed",
+    "github actions dogfood receipt_ref: runx:receipt:sha256:d33f1bbe1c784ffa7002c41bdd0c51e39e721844b2e7101597acf3a5afb9f931"
   ],
   "policy": {
     "min_reputation_score": 80,
@@ -94,7 +96,7 @@
     "package": "deliverability-judge",
     "input": "evidence{postmaster_report,bounce_metrics,complaint_metrics,placement_probe} + policy",
     "command": "runx skill <owner>/deliverability-judge@0.1.0 --json",
-    "receipt_ref": "runx:receipt:sha256:5f9afd29fa8f0352e70491f991f9b47e6156a9f714986d3a88b762b1a049a489",
+    "receipt_ref": "runx:receipt:sha256:d33f1bbe1c784ffa7002c41bdd0c51e39e721844b2e7101597acf3a5afb9f931",
     "verify_verdict": "unknown",
     "harness_cases": [
       {
@@ -119,14 +121,14 @@
         "contradictory_signals_escalate"
       ],
       "receipt_ids": [
-        "sha256:8cab7fe48de79e5d12b1e03ef297f95dc550962bb18cbe3714e71096fbc67faa",
-        "sha256:873fc408ba0174593e4d852e9046b73ce54ecad57ec78e027a15eb7b6991c95b"
+        "sha256:b6c6a58d292dcb20eca205c8260f01609893328dfb8ad71c430f53abae75ceb2",
+        "sha256:1854e40ebad01f30538928b48d26f009177db088c924ccd769ff038fb46bdcc0"
       ],
       "graph_case_count": 0
     },
     "dogfood": {
       "closure": {
-        "closed_at": "2026-06-26T02:27:49.952Z",
+        "closed_at": "2026-06-26T02:29:47.082Z",
         "disposition": "closed",
         "reason_code": "process_closed",
         "summary": "cli-tool default completed"
@@ -570,7 +572,7 @@
           {
             "artifact_refs": [],
             "closure": {
-              "closed_at": "2026-06-26T02:27:49.952Z",
+              "closed_at": "2026-06-26T02:29:47.082Z",
               "disposition": "closed",
               "reason_code": "process_exit",
               "summary": "cli-tool exited successfully"
@@ -625,7 +627,7 @@
           "terms": []
         },
         "canonicalization": "runx.receipt.c14n.v1",
-        "created_at": "2026-06-26T02:27:49.952Z",
+        "created_at": "2026-06-26T02:29:47.082Z",
         "decisions": [
           {
             "artifact_refs": [],
@@ -653,8 +655,8 @@
             "selected_harness_ref": null
           }
         ],
-        "digest": "sha256:0aec17c37e5c63e7930b70f9c34480fbcab9a46ab9e932c8002f28ee04b2e0fc",
-        "id": "sha256:5f9afd29fa8f0352e70491f991f9b47e6156a9f714986d3a88b762b1a049a489",
+        "digest": "sha256:c6d90ef0398ca62f3a5afc5449f18f15a43a66a692ca478ca5af7248faa033c0",
+        "id": "sha256:d33f1bbe1c784ffa7002c41bdd0c51e39e721844b2e7101597acf3a5afb9f931",
         "idempotency": {
           "content_hash": "sha256:run_default_b71dad76243f-default-content",
           "intent_key": "sha256:run_default_b71dad76243f-default-intent",
@@ -671,7 +673,7 @@
         },
         "schema": "runx.receipt.v1",
         "seal": {
-          "closed_at": "2026-06-26T02:27:49.952Z",
+          "closed_at": "2026-06-26T02:29:47.082Z",
           "criteria": [
             {
               "criterion_id": "process_exit",
@@ -682,14 +684,14 @@
             }
           ],
           "disposition": "closed",
-          "last_observed_at": "2026-06-26T02:27:49.952Z",
+          "last_observed_at": "2026-06-26T02:29:47.082Z",
           "reason_code": "process_closed",
           "summary": "cli-tool default completed"
         },
         "signals": [],
         "signature": {
           "alg": "Ed25519",
-          "value": "base64:d4Tak3p67AGWbyN6xXGUKMYbN6Ck0KCYsJyCeTr-ceim0mXtwnbVhhVNYSXVBIz2bNbVzEEa6-VSckRPuc17BA"
+          "value": "base64:5gNEL575ch-PqClNPndDGdi40gpqXYEH73I_3vm87oAxdKGNJ8blRU8N7Z304KyRkn-NbKzIWQw3SeyRF-WiAw"
         },
         "subject": {
           "commitments": [],
@@ -700,7 +702,7 @@
           }
         }
       },
-      "receipt_id": "sha256:5f9afd29fa8f0352e70491f991f9b47e6156a9f714986d3a88b762b1a049a489",
+      "receipt_id": "sha256:d33f1bbe1c784ffa7002c41bdd0c51e39e721844b2e7101597acf3a5afb9f931",
       "run_id": "run_default_b71dad76243f",
       "schema": "runx.skill_run.v1",
       "skill_name": "deliverability-judge",
@@ -711,7 +713,7 @@
       "signature_mode": "local-development",
       "trees": [
         {
-          "root_receipt_id": "sha256:5f9afd29fa8f0352e70491f991f9b47e6156a9f714986d3a88b762b1a049a489",
+          "root_receipt_id": "sha256:1854e40ebad01f30538928b48d26f009177db088c924ccd769ff038fb46bdcc0",
           "receipt_count": 1,
           "parent_missing": null,
           "valid": false,
@@ -724,7 +726,7 @@
           ]
         },
         {
-          "root_receipt_id": "sha256:873fc408ba0174593e4d852e9046b73ce54ecad57ec78e027a15eb7b6991c95b",
+          "root_receipt_id": "sha256:b6c6a58d292dcb20eca205c8260f01609893328dfb8ad71c430f53abae75ceb2",
           "receipt_count": 1,
           "parent_missing": null,
           "valid": false,
@@ -737,7 +739,7 @@
           ]
         },
         {
-          "root_receipt_id": "sha256:8cab7fe48de79e5d12b1e03ef297f95dc550962bb18cbe3714e71096fbc67faa",
+          "root_receipt_id": "sha256:d33f1bbe1c784ffa7002c41bdd0c51e39e721844b2e7101597acf3a5afb9f931",
           "receipt_count": 1,
           "parent_missing": null,
           "valid": false,

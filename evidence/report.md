@@ -21,3 +21,7 @@
 - GitHub Actions harness status: passed
 - GitHub Actions dogfood receipt_ref: runx:receipt:sha256:5f9afd29fa8f0352e70491f991f9b47e6156a9f714986d3a88b762b1a049a489
 - GitHub Actions verify status: unknown
+
+- GitHub Actions harness status: passed
+- GitHub Actions dogfood receipt_ref: runx:receipt:sha256:d33f1bbe1c784ffa7002c41bdd0c51e39e721844b2e7101597acf3a5afb9f931
+- GitHub Actions verify status: unknown
