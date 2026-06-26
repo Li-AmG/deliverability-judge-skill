@@ -1,0 +1,145 @@
+{
+  "verdict": {
+    "state": "healthy",
+    "confidence_window": "high",
+    "reason": "all sealed deliverability signals are within policy and non-contradictory"
+  },
+  "recommendation": {
+    "action": "continue",
+    "signal_bindings": [
+      {
+        "signal": "postmaster_report",
+        "source": "postmaster.example.com/domain/example.com",
+        "timestamp": "2026-06-26T00:00:00Z",
+        "value": 93
+      },
+      {
+        "signal": "bounce_metrics",
+        "source": "esp.example.com/metrics/bounce/2026-06-26",
+        "timestamp": "2026-06-26T00:01:00Z",
+        "value": 0.6
+      },
+      {
+        "signal": "complaint_metrics",
+        "source": "esp.example.com/metrics/complaint/2026-06-26",
+        "timestamp": "2026-06-26T00:02:00Z",
+        "value": 0.03
+      },
+      {
+        "signal": "placement_probe",
+        "source": "seedlist.example.com/probe/abc123",
+        "timestamp": "2026-06-26T00:03:00Z",
+        "value": 96
+      }
+    ],
+    "evidence_hash": "sha256:4ae4f0dd5a4b10f25783e581a5caf6852837eaafa1d76f152a271a11f898bbb8"
+  },
+  "escalation_record": null,
+  "evidence_json": {
+    "schema": "deliverability.judge.evidence.v1",
+    "skill": {
+      "name": "deliverability-judge",
+      "version": "0.1.0"
+    },
+    "observations": [
+      "verdict=healthy",
+      "confidence_window=high",
+      "postmaster_report sealed=true source=postmaster.example.com/domain/example.com timestamp=2026-06-26T00:00:00Z reputation_score=93",
+      "bounce_metrics sealed=true source=esp.example.com/metrics/bounce/2026-06-26 timestamp=2026-06-26T00:01:00Z bounce_pct=0.6",
+      "complaint_metrics sealed=true source=esp.example.com/metrics/complaint/2026-06-26 timestamp=2026-06-26T00:02:00Z complaint_pct=0.03",
+      "placement_probe sealed=true source=seedlist.example.com/probe/abc123 timestamp=2026-06-26T00:03:00Z inbox_placement_pct=96",
+      "recommendation_action=continue",
+      "evidence_hash=sha256:4ae4f0dd5a4b10f25783e581a5caf6852837eaafa1d76f152a271a11f898bbb8",
+      "refused_reason=none",
+      "harness cases=sealed_healthy_signals_continue, contradictory_signals_escalate",
+      "receipt id=pending post-publish dogfood receipt"
+    ],
+    "policy": {
+      "min_reputation_score": 80,
+      "max_bounce_pct": 2,
+      "max_complaint_pct": 0.1,
+      "min_inbox_placement_pct": 90
+    },
+    "signals": {
+      "postmaster_report": {
+        "sealed": true,
+        "source": "postmaster.example.com/domain/example.com",
+        "timestamp": "2026-06-26T00:00:00Z",
+        "reputation_score": 93
+      },
+      "bounce_metrics": {
+        "sealed": true,
+        "source": "esp.example.com/metrics/bounce/2026-06-26",
+        "timestamp": "2026-06-26T00:01:00Z",
+        "bounce_pct": 0.6
+      },
+      "complaint_metrics": {
+        "sealed": true,
+        "source": "esp.example.com/metrics/complaint/2026-06-26",
+        "timestamp": "2026-06-26T00:02:00Z",
+        "complaint_pct": 0.03
+      },
+      "placement_probe": {
+        "sealed": true,
+        "source": "seedlist.example.com/probe/abc123",
+        "timestamp": "2026-06-26T00:03:00Z",
+        "inbox_placement_pct": 96
+      }
+    },
+    "verdict": {
+      "state": "healthy",
+      "confidence_window": "high",
+      "reason": "all sealed deliverability signals are within policy and non-contradictory"
+    },
+    "recommendation": {
+      "action": "continue",
+      "signal_bindings": [
+        {
+          "signal": "postmaster_report",
+          "source": "postmaster.example.com/domain/example.com",
+          "timestamp": "2026-06-26T00:00:00Z",
+          "value": 93
+        },
+        {
+          "signal": "bounce_metrics",
+          "source": "esp.example.com/metrics/bounce/2026-06-26",
+          "timestamp": "2026-06-26T00:01:00Z",
+          "value": 0.6
+        },
+        {
+          "signal": "complaint_metrics",
+          "source": "esp.example.com/metrics/complaint/2026-06-26",
+          "timestamp": "2026-06-26T00:02:00Z",
+          "value": 0.03
+        },
+        {
+          "signal": "placement_probe",
+          "source": "seedlist.example.com/probe/abc123",
+          "timestamp": "2026-06-26T00:03:00Z",
+          "value": 96
+        }
+      ],
+      "evidence_hash": "sha256:4ae4f0dd5a4b10f25783e581a5caf6852837eaafa1d76f152a271a11f898bbb8"
+    },
+    "escalation_record": null,
+    "dogfood": {
+      "package": "deliverability-judge",
+      "input": "evidence{postmaster_report,bounce_metrics,complaint_metrics,placement_probe} + policy",
+      "command": "runx skill <owner>/deliverability-judge@0.1.0 --json",
+      "receipt_ref": null,
+      "verify_verdict": null,
+      "harness_cases": [
+        {
+          "name": "sealed_healthy_signals_continue",
+          "expected_status": "sealed"
+        },
+        {
+          "name": "contradictory_signals_escalate",
+          "expected_status": "sealed"
+        }
+      ]
+    },
+    "effect_boundary": "read-only verdict; live throttle is a separate governed run dispatched by naming"
+  },
+  "report_md": "# Deliverability Judge Report\n\n- Package: deliverability-judge@0.1.0\n- Verdict: healthy\n- Confidence window: high\n- Reason: all sealed deliverability signals are within policy and non-contradictory\n- Recommendation action: continue\n- Evidence hash: sha256:4ae4f0dd5a4b10f25783e581a5caf6852837eaafa1d76f152a271a11f898bbb8\n- Postmaster source: postmaster.example.com/domain/example.com\n- Bounce source: esp.example.com/metrics/bounce/2026-06-26\n- Complaint source: esp.example.com/metrics/complaint/2026-06-26\n- Placement source: seedlist.example.com/probe/abc123\n- Refusal reason: none\n- Harness cases: sealed_healthy_signals_continue and contradictory_signals_escalate\n- Effect boundary: read-only recommendation only; no send, throttle, mutation, state, or authority mint.\n"
+}

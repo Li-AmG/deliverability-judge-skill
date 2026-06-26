@@ -1,0 +1,109 @@
+{
+  "schema": "deliverability.judge.evidence.v1",
+  "skill": {
+    "name": "deliverability-judge",
+    "version": "0.1.0"
+  },
+  "observations": [
+    "verdict=escalate",
+    "confidence_window=conflicted",
+    "postmaster_report sealed=true source=postmaster.example.com/domain/example.net timestamp=2026-06-26T00:10:00Z reputation_score=92",
+    "bounce_metrics sealed=true source=esp.example.com/metrics/bounce/2026-06-26 timestamp=2026-06-26T00:11:00Z bounce_pct=5.4",
+    "complaint_metrics sealed=true source=esp.example.com/metrics/complaint/2026-06-26 timestamp=2026-06-26T00:12:00Z complaint_pct=0.04",
+    "placement_probe sealed=true source=seedlist.example.com/probe/def456 timestamp=2026-06-26T00:13:00Z inbox_placement_pct=62",
+    "recommendation_action=none",
+    "evidence_hash=none",
+    "refused_reason=bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+    "harness cases=sealed_healthy_signals_continue, contradictory_signals_escalate",
+    "receipt id=pending post-publish dogfood receipt",
+    "local node healthy fixture verdict: healthy, recommendation=continue",
+    "local node contradictory fixture verdict: escalate, recommendation=none",
+    "runx doctor status: success, errors=0, warnings=0",
+    "local runx harness attempted with runx-cli 0.6.13 on Windows; blocked by receipt store os error 87"
+  ],
+  "policy": {
+    "min_reputation_score": 80,
+    "max_bounce_pct": 2,
+    "max_complaint_pct": 0.1,
+    "min_inbox_placement_pct": 90
+  },
+  "signals": {
+    "postmaster_report": {
+      "sealed": true,
+      "source": "postmaster.example.com/domain/example.net",
+      "timestamp": "2026-06-26T00:10:00Z",
+      "reputation_score": 92
+    },
+    "bounce_metrics": {
+      "sealed": true,
+      "source": "esp.example.com/metrics/bounce/2026-06-26",
+      "timestamp": "2026-06-26T00:11:00Z",
+      "bounce_pct": 5.4
+    },
+    "complaint_metrics": {
+      "sealed": true,
+      "source": "esp.example.com/metrics/complaint/2026-06-26",
+      "timestamp": "2026-06-26T00:12:00Z",
+      "complaint_pct": 0.04
+    },
+    "placement_probe": {
+      "sealed": true,
+      "source": "seedlist.example.com/probe/def456",
+      "timestamp": "2026-06-26T00:13:00Z",
+      "inbox_placement_pct": 62
+    }
+  },
+  "verdict": {
+    "state": "escalate",
+    "confidence_window": "conflicted",
+    "reason": "bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe"
+  },
+  "recommendation": null,
+  "escalation_record": {
+    "reason": "bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+    "signals": {
+      "postmaster_report": {
+        "sealed": true,
+        "source": "postmaster.example.com/domain/example.net",
+        "timestamp": "2026-06-26T00:10:00Z",
+        "reputation_score": 92
+      },
+      "bounce_metrics": {
+        "sealed": true,
+        "source": "esp.example.com/metrics/bounce/2026-06-26",
+        "timestamp": "2026-06-26T00:11:00Z",
+        "bounce_pct": 5.4
+      },
+      "complaint_metrics": {
+        "sealed": true,
+        "source": "esp.example.com/metrics/complaint/2026-06-26",
+        "timestamp": "2026-06-26T00:12:00Z",
+        "complaint_pct": 0.04
+      },
+      "placement_probe": {
+        "sealed": true,
+        "source": "seedlist.example.com/probe/def456",
+        "timestamp": "2026-06-26T00:13:00Z",
+        "inbox_placement_pct": 62
+      }
+    }
+  },
+  "dogfood": {
+    "package": "deliverability-judge",
+    "input": "evidence{postmaster_report,bounce_metrics,complaint_metrics,placement_probe} + policy",
+    "command": "runx skill <owner>/deliverability-judge@0.1.0 --json",
+    "receipt_ref": null,
+    "verify_verdict": null,
+    "harness_cases": [
+      {
+        "name": "sealed_healthy_signals_continue",
+        "expected_status": "sealed"
+      },
+      {
+        "name": "contradictory_signals_escalate",
+        "expected_status": "sealed"
+      }
+    ]
+  },
+  "effect_boundary": "read-only verdict; live throttle is a separate governed run dispatched by naming"
+}

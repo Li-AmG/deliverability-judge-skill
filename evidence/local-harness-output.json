@@ -1,0 +1,15 @@
+{
+  "status": "failed",
+  "case_count": 2,
+  "assertion_error_count": 2,
+  "assertion_errors": [
+    "sealed_healthy_signals_continue: receipt store is unreadable: 参数错误。 (os error 87)",
+    "contradictory_signals_escalate: receipt store is unreadable: 参数错误。 (os error 87)"
+  ],
+  "case_names": [
+    "sealed_healthy_signals_continue",
+    "contradictory_signals_escalate"
+  ],
+  "receipt_ids": [],
+  "graph_case_count": 0
+}
