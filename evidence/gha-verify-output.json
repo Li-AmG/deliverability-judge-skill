@@ -16,7 +16,7 @@
       ]
     },
     {
-      "root_receipt_id": "sha256:203b519daa03ad5174333333e26d3bbe9021dd2219fe2fd609d2800d2f336bfb",
+      "root_receipt_id": "sha256:4d118a3bab2e7b0f84896cb4ed26099616d03057c5563aa1c9865f6c601624a7",
       "receipt_count": 1,
       "parent_missing": null,
       "valid": false,
@@ -29,7 +29,7 @@
       ]
     },
     {
-      "root_receipt_id": "sha256:526914c2b72dc7277af1bfa86ebc3e7a884b159768ea41eb6244fa3c6e6f1ee0",
+      "root_receipt_id": "sha256:6294b3bd469316191e011ca13c896cff398dfdd96b3229fc0921d64d5471250f",
       "receipt_count": 1,
       "parent_missing": null,
       "valid": false,
@@ -42,33 +42,7 @@
       ]
     },
     {
-      "root_receipt_id": "sha256:b6c6a58d292dcb20eca205c8260f01609893328dfb8ad71c430f53abae75ceb2",
-      "receipt_count": 1,
-      "parent_missing": null,
-      "valid": false,
-      "findings": [
-        {
-          "code": "SignatureKeyMissing",
-          "path": "issuer",
-          "message": "signature verifier could not resolve the issuer key"
-        }
-      ]
-    },
-    {
-      "root_receipt_id": "sha256:d33f1bbe1c784ffa7002c41bdd0c51e39e721844b2e7101597acf3a5afb9f931",
-      "receipt_count": 1,
-      "parent_missing": null,
-      "valid": false,
-      "findings": [
-        {
-          "code": "SignatureKeyMissing",
-          "path": "issuer",
-          "message": "signature verifier could not resolve the issuer key"
-        }
-      ]
-    },
-    {
-      "root_receipt_id": "sha256:eea585d12585a6446cc37dd1cc5fe61c1ec7e06e4d9b7ec50c654e360f7e895c",
+      "root_receipt_id": "sha256:a5a63141c11c5bc4b35912423642525614ef79b7df6d0ba1790a4e5994edb122",
       "receipt_count": 1,
       "parent_missing": null,
       "valid": false,

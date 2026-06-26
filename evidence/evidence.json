@@ -25,7 +25,9 @@
     "github actions runx harness status: passed",
     "github actions dogfood receipt_ref: runx:receipt:sha256:d33f1bbe1c784ffa7002c41bdd0c51e39e721844b2e7101597acf3a5afb9f931",
     "github actions runx harness status: passed",
-    "github actions dogfood receipt_ref: runx:receipt:sha256:203b519daa03ad5174333333e26d3bbe9021dd2219fe2fd609d2800d2f336bfb"
+    "github actions dogfood receipt_ref: runx:receipt:sha256:203b519daa03ad5174333333e26d3bbe9021dd2219fe2fd609d2800d2f336bfb",
+    "github actions runx harness status: passed",
+    "github actions dogfood receipt_ref: runx:receipt:sha256:a5a63141c11c5bc4b35912423642525614ef79b7df6d0ba1790a4e5994edb122"
   ],
   "policy": {
     "min_reputation_score": 80,
@@ -98,7 +100,7 @@
     "package": "deliverability-judge",
     "input": "evidence{postmaster_report,bounce_metrics,complaint_metrics,placement_probe} + policy",
     "command": "runx skill <owner>/deliverability-judge@0.1.0 --json",
-    "receipt_ref": "runx:receipt:sha256:203b519daa03ad5174333333e26d3bbe9021dd2219fe2fd609d2800d2f336bfb",
+    "receipt_ref": "runx:receipt:sha256:a5a63141c11c5bc4b35912423642525614ef79b7df6d0ba1790a4e5994edb122",
     "verify_verdict": "unknown",
     "harness_cases": [
       {
@@ -123,14 +125,14 @@
         "contradictory_signals_escalate"
       ],
       "receipt_ids": [
-        "sha256:526914c2b72dc7277af1bfa86ebc3e7a884b159768ea41eb6244fa3c6e6f1ee0",
-        "sha256:eea585d12585a6446cc37dd1cc5fe61c1ec7e06e4d9b7ec50c654e360f7e895c"
+        "sha256:6294b3bd469316191e011ca13c896cff398dfdd96b3229fc0921d64d5471250f",
+        "sha256:4d118a3bab2e7b0f84896cb4ed26099616d03057c5563aa1c9865f6c601624a7"
       ],
       "graph_case_count": 0
     },
     "dogfood": {
       "closure": {
-        "closed_at": "2026-06-26T02:30:47.251Z",
+        "closed_at": "2026-06-26T02:31:03.938Z",
         "disposition": "closed",
         "reason_code": "process_closed",
         "summary": "cli-tool default completed"
@@ -574,7 +576,7 @@
           {
             "artifact_refs": [],
             "closure": {
-              "closed_at": "2026-06-26T02:30:47.251Z",
+              "closed_at": "2026-06-26T02:31:03.938Z",
               "disposition": "closed",
               "reason_code": "process_exit",
               "summary": "cli-tool exited successfully"
@@ -629,7 +631,7 @@
           "terms": []
         },
         "canonicalization": "runx.receipt.c14n.v1",
-        "created_at": "2026-06-26T02:30:47.251Z",
+        "created_at": "2026-06-26T02:31:03.938Z",
         "decisions": [
           {
             "artifact_refs": [],
@@ -657,8 +659,8 @@
             "selected_harness_ref": null
           }
         ],
-        "digest": "sha256:b3fcabb2d1a4a3ddbba6aca9592ed1e252cf078f69f33b8fbf3e59538fb4f452",
-        "id": "sha256:203b519daa03ad5174333333e26d3bbe9021dd2219fe2fd609d2800d2f336bfb",
+        "digest": "sha256:12171b661279eb74761ba5bde91ba2af25ac4e830c073e2440c9e32db0bb70a7",
+        "id": "sha256:a5a63141c11c5bc4b35912423642525614ef79b7df6d0ba1790a4e5994edb122",
         "idempotency": {
           "content_hash": "sha256:run_default_b71dad76243f-default-content",
           "intent_key": "sha256:run_default_b71dad76243f-default-intent",
@@ -675,7 +677,7 @@
         },
         "schema": "runx.receipt.v1",
         "seal": {
-          "closed_at": "2026-06-26T02:30:47.251Z",
+          "closed_at": "2026-06-26T02:31:03.938Z",
           "criteria": [
             {
               "criterion_id": "process_exit",
@@ -686,14 +688,14 @@
             }
           ],
           "disposition": "closed",
-          "last_observed_at": "2026-06-26T02:30:47.251Z",
+          "last_observed_at": "2026-06-26T02:31:03.938Z",
           "reason_code": "process_closed",
           "summary": "cli-tool default completed"
         },
         "signals": [],
         "signature": {
           "alg": "Ed25519",
-          "value": "base64:Q_iR6SRfvz0odxj2_scjhTlEyM5KE86NCVapaVxXt9w3zrZSnEohJ4_H0Pm5de4x8YP-Gja-YiGDtjR0qlxpDA"
+          "value": "base64:EojWOI6sBM1iXWpPk8wqUh_C5_0SGtJnt_u_o6pti7um1_3bOKVOOvvi4DdFPpG_yNFhJoOd1Jq_riW2atTuAA"
         },
         "subject": {
           "commitments": [],
@@ -704,7 +706,7 @@
           }
         }
       },
-      "receipt_id": "sha256:203b519daa03ad5174333333e26d3bbe9021dd2219fe2fd609d2800d2f336bfb",
+      "receipt_id": "sha256:a5a63141c11c5bc4b35912423642525614ef79b7df6d0ba1790a4e5994edb122",
       "run_id": "run_default_b71dad76243f",
       "schema": "runx.skill_run.v1",
       "skill_name": "deliverability-judge",
@@ -728,7 +730,7 @@
           ]
         },
         {
-          "root_receipt_id": "sha256:203b519daa03ad5174333333e26d3bbe9021dd2219fe2fd609d2800d2f336bfb",
+          "root_receipt_id": "sha256:4d118a3bab2e7b0f84896cb4ed26099616d03057c5563aa1c9865f6c601624a7",
           "receipt_count": 1,
           "parent_missing": null,
           "valid": false,
@@ -741,7 +743,7 @@
           ]
         },
         {
-          "root_receipt_id": "sha256:526914c2b72dc7277af1bfa86ebc3e7a884b159768ea41eb6244fa3c6e6f1ee0",
+          "root_receipt_id": "sha256:6294b3bd469316191e011ca13c896cff398dfdd96b3229fc0921d64d5471250f",
           "receipt_count": 1,
           "parent_missing": null,
           "valid": false,
@@ -754,33 +756,7 @@
           ]
         },
         {
-          "root_receipt_id": "sha256:b6c6a58d292dcb20eca205c8260f01609893328dfb8ad71c430f53abae75ceb2",
-          "receipt_count": 1,
-          "parent_missing": null,
-          "valid": false,
-          "findings": [
-            {
-              "code": "SignatureKeyMissing",
-              "path": "issuer",
-              "message": "signature verifier could not resolve the issuer key"
-            }
-          ]
-        },
-        {
-          "root_receipt_id": "sha256:d33f1bbe1c784ffa7002c41bdd0c51e39e721844b2e7101597acf3a5afb9f931",
-          "receipt_count": 1,
-          "parent_missing": null,
-          "valid": false,
-          "findings": [
-            {
-              "code": "SignatureKeyMissing",
-              "path": "issuer",
-              "message": "signature verifier could not resolve the issuer key"
-            }
-          ]
-        },
-        {
-          "root_receipt_id": "sha256:eea585d12585a6446cc37dd1cc5fe61c1ec7e06e4d9b7ec50c654e360f7e895c",
+          "root_receipt_id": "sha256:a5a63141c11c5bc4b35912423642525614ef79b7df6d0ba1790a4e5994edb122",
           "receipt_count": 1,
           "parent_missing": null,
           "valid": false,
