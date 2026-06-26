@@ -1,0 +1,47 @@
+{
+  "receipt_dir": "/home/runner/work/deliverability-judge-skill/deliverability-judge-skill/evidence/gha-receipts",
+  "signature_mode": "local-development",
+  "trees": [
+    {
+      "root_receipt_id": "sha256:5f9afd29fa8f0352e70491f991f9b47e6156a9f714986d3a88b762b1a049a489",
+      "receipt_count": 1,
+      "parent_missing": null,
+      "valid": false,
+      "findings": [
+        {
+          "code": "SignatureKeyMissing",
+          "path": "issuer",
+          "message": "signature verifier could not resolve the issuer key"
+        }
+      ]
+    },
+    {
+      "root_receipt_id": "sha256:873fc408ba0174593e4d852e9046b73ce54ecad57ec78e027a15eb7b6991c95b",
+      "receipt_count": 1,
+      "parent_missing": null,
+      "valid": false,
+      "findings": [
+        {
+          "code": "SignatureKeyMissing",
+          "path": "issuer",
+          "message": "signature verifier could not resolve the issuer key"
+        }
+      ]
+    },
+    {
+      "root_receipt_id": "sha256:8cab7fe48de79e5d12b1e03ef297f95dc550962bb18cbe3714e71096fbc67faa",
+      "receipt_count": 1,
+      "parent_missing": null,
+      "valid": false,
+      "findings": [
+        {
+          "code": "SignatureKeyMissing",
+          "path": "issuer",
+          "message": "signature verifier could not resolve the issuer key"
+        }
+      ]
+    }
+  ],
+  "unreadable_files": [],
+  "valid": false
+}

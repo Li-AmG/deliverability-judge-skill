@@ -17,3 +17,7 @@
 
 - runx doctor: success with 0 errors and 0 warnings.
 - Local Windows harness blocker: receipt store os error 87; GitHub Actions Linux harness is configured to generate sealed receipts.
+
+- GitHub Actions harness status: passed
+- GitHub Actions dogfood receipt_ref: runx:receipt:sha256:5f9afd29fa8f0352e70491f991f9b47e6156a9f714986d3a88b762b1a049a489
+- GitHub Actions verify status: unknown

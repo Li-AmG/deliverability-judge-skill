@@ -1,0 +1,582 @@
+{
+  "closure": {
+    "closed_at": "2026-06-26T02:27:49.952Z",
+    "disposition": "closed",
+    "reason_code": "process_closed",
+    "summary": "cli-tool default completed"
+  },
+  "execution": {
+    "exit_code": 0,
+    "skill_claim": {
+      "escalation_record": {
+        "reason": "bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+        "signals": {
+          "bounce_metrics": {
+            "bounce_pct": 5.4,
+            "sealed": true,
+            "source": "esp.example.com/metrics/bounce/2026-06-26",
+            "timestamp": "2026-06-26T00:11:00Z"
+          },
+          "complaint_metrics": {
+            "complaint_pct": 0.04,
+            "sealed": true,
+            "source": "esp.example.com/metrics/complaint/2026-06-26",
+            "timestamp": "2026-06-26T00:12:00Z"
+          },
+          "placement_probe": {
+            "inbox_placement_pct": 62,
+            "sealed": true,
+            "source": "seedlist.example.com/probe/def456",
+            "timestamp": "2026-06-26T00:13:00Z"
+          },
+          "postmaster_report": {
+            "reputation_score": 92,
+            "sealed": true,
+            "source": "postmaster.example.com/domain/example.net",
+            "timestamp": "2026-06-26T00:10:00Z"
+          }
+        }
+      },
+      "evidence_json": {
+        "dogfood": {
+          "command": "runx skill <owner>/deliverability-judge@0.1.0 --json",
+          "harness_cases": [
+            {
+              "expected_status": "sealed",
+              "name": "sealed_healthy_signals_continue"
+            },
+            {
+              "expected_status": "sealed",
+              "name": "contradictory_signals_escalate"
+            }
+          ],
+          "input": "evidence{postmaster_report,bounce_metrics,complaint_metrics,placement_probe} + policy",
+          "package": "deliverability-judge",
+          "receipt_ref": null,
+          "verify_verdict": null
+        },
+        "effect_boundary": "read-only verdict; live throttle is a separate governed run dispatched by naming",
+        "escalation_record": {
+          "reason": "bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+          "signals": {
+            "bounce_metrics": {
+              "bounce_pct": 5.4,
+              "sealed": true,
+              "source": "esp.example.com/metrics/bounce/2026-06-26",
+              "timestamp": "2026-06-26T00:11:00Z"
+            },
+            "complaint_metrics": {
+              "complaint_pct": 0.04,
+              "sealed": true,
+              "source": "esp.example.com/metrics/complaint/2026-06-26",
+              "timestamp": "2026-06-26T00:12:00Z"
+            },
+            "placement_probe": {
+              "inbox_placement_pct": 62,
+              "sealed": true,
+              "source": "seedlist.example.com/probe/def456",
+              "timestamp": "2026-06-26T00:13:00Z"
+            },
+            "postmaster_report": {
+              "reputation_score": 92,
+              "sealed": true,
+              "source": "postmaster.example.com/domain/example.net",
+              "timestamp": "2026-06-26T00:10:00Z"
+            }
+          }
+        },
+        "observations": [
+          "verdict=escalate",
+          "confidence_window=conflicted",
+          "postmaster_report sealed=true source=postmaster.example.com/domain/example.net timestamp=2026-06-26T00:10:00Z reputation_score=92",
+          "bounce_metrics sealed=true source=esp.example.com/metrics/bounce/2026-06-26 timestamp=2026-06-26T00:11:00Z bounce_pct=5.4",
+          "complaint_metrics sealed=true source=esp.example.com/metrics/complaint/2026-06-26 timestamp=2026-06-26T00:12:00Z complaint_pct=0.04",
+          "placement_probe sealed=true source=seedlist.example.com/probe/def456 timestamp=2026-06-26T00:13:00Z inbox_placement_pct=62",
+          "recommendation_action=none",
+          "evidence_hash=none",
+          "refused_reason=bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+          "harness cases=sealed_healthy_signals_continue, contradictory_signals_escalate",
+          "receipt id=pending post-publish dogfood receipt"
+        ],
+        "policy": {
+          "max_bounce_pct": 2,
+          "max_complaint_pct": 0.1,
+          "min_inbox_placement_pct": 90,
+          "min_reputation_score": 80
+        },
+        "recommendation": null,
+        "schema": "deliverability.judge.evidence.v1",
+        "signals": {
+          "bounce_metrics": {
+            "bounce_pct": 5.4,
+            "sealed": true,
+            "source": "esp.example.com/metrics/bounce/2026-06-26",
+            "timestamp": "2026-06-26T00:11:00Z"
+          },
+          "complaint_metrics": {
+            "complaint_pct": 0.04,
+            "sealed": true,
+            "source": "esp.example.com/metrics/complaint/2026-06-26",
+            "timestamp": "2026-06-26T00:12:00Z"
+          },
+          "placement_probe": {
+            "inbox_placement_pct": 62,
+            "sealed": true,
+            "source": "seedlist.example.com/probe/def456",
+            "timestamp": "2026-06-26T00:13:00Z"
+          },
+          "postmaster_report": {
+            "reputation_score": 92,
+            "sealed": true,
+            "source": "postmaster.example.com/domain/example.net",
+            "timestamp": "2026-06-26T00:10:00Z"
+          }
+        },
+        "skill": {
+          "name": "deliverability-judge",
+          "version": "0.1.0"
+        },
+        "verdict": {
+          "confidence_window": "conflicted",
+          "reason": "bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+          "state": "escalate"
+        }
+      },
+      "recommendation": null,
+      "report_md": "# Deliverability Judge Report\n\n- Package: deliverability-judge@0.1.0\n- Verdict: escalate\n- Confidence window: conflicted\n- Reason: bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe\n- Recommendation action: none\n- Evidence hash: none\n- Postmaster source: postmaster.example.com/domain/example.net\n- Bounce source: esp.example.com/metrics/bounce/2026-06-26\n- Complaint source: esp.example.com/metrics/complaint/2026-06-26\n- Placement source: seedlist.example.com/probe/def456\n- Refusal reason: bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe\n- Harness cases: sealed_healthy_signals_continue and contradictory_signals_escalate\n- Effect boundary: read-only recommendation only; no send, throttle, mutation, state, or authority mint.\n",
+      "verdict": {
+        "confidence_window": "conflicted",
+        "reason": "bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+        "state": "escalate"
+      }
+    },
+    "stderr": "",
+    "stdout": "{\n  \"verdict\": {\n    \"state\": \"escalate\",\n    \"confidence_window\": \"conflicted\",\n    \"reason\": \"bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe\"\n  },\n  \"recommendation\": null,\n  \"escalation_record\": {\n    \"reason\": \"bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe\",\n    \"signals\": {\n      \"postmaster_report\": {\n        \"sealed\": true,\n        \"source\": \"postmaster.example.com/domain/example.net\",\n        \"timestamp\": \"2026-06-26T00:10:00Z\",\n        \"reputation_score\": 92\n      },\n      \"bounce_metrics\": {\n        \"sealed\": true,\n        \"source\": \"esp.example.com/metrics/bounce/2026-06-26\",\n        \"timestamp\": \"2026-06-26T00:11:00Z\",\n        \"bounce_pct\": 5.4\n      },\n      \"complaint_metrics\": {\n        \"sealed\": true,\n        \"source\": \"esp.example.com/metrics/complaint/2026-06-26\",\n        \"timestamp\": \"2026-06-26T00:12:00Z\",\n        \"complaint_pct\": 0.04\n      },\n      \"placement_probe\": {\n        \"sealed\": true,\n        \"source\": \"seedlist.example.com/probe/def456\",\n        \"timestamp\": \"2026-06-26T00:13:00Z\",\n        \"inbox_placement_pct\": 62\n      }\n    }\n  },\n  \"evidence_json\": {\n    \"schema\": \"deliverability.judge.evidence.v1\",\n    \"skill\": {\n      \"name\": \"deliverability-judge\",\n      \"version\": \"0.1.0\"\n    },\n    \"observations\": [\n      \"verdict=escalate\",\n      \"confidence_window=conflicted\",\n      \"postmaster_report sealed=true source=postmaster.example.com/domain/example.net timestamp=2026-06-26T00:10:00Z reputation_score=92\",\n      \"bounce_metrics sealed=true source=esp.example.com/metrics/bounce/2026-06-26 timestamp=2026-06-26T00:11:00Z bounce_pct=5.4\",\n      \"complaint_metrics sealed=true source=esp.example.com/metrics/complaint/2026-06-26 timestamp=2026-06-26T00:12:00Z complaint_pct=0.04\",\n      \"placement_probe sealed=true source=seedlist.example.com/probe/def456 timestamp=2026-06-26T00:13:00Z inbox_placement_pct=62\",\n      \"recommendation_action=none\",\n      \"evidence_hash=none\",\n      \"refused_reason=bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe\",\n      \"harness cases=sealed_healthy_signals_continue, contradictory_signals_escalate\",\n      \"receipt id=pending post-publish dogfood receipt\"\n    ],\n    \"policy\": {\n      \"min_reputation_score\": 80,\n      \"max_bounce_pct\": 2,\n      \"max_complaint_pct\": 0.1,\n      \"min_inbox_placement_pct\": 90\n    },\n    \"signals\": {\n      \"postmaster_report\": {\n        \"sealed\": true,\n        \"source\": \"postmaster.example.com/domain/example.net\",\n        \"timestamp\": \"2026-06-26T00:10:00Z\",\n        \"reputation_score\": 92\n      },\n      \"bounce_metrics\": {\n        \"sealed\": true,\n        \"source\": \"esp.example.com/metrics/bounce/2026-06-26\",\n        \"timestamp\": \"2026-06-26T00:11:00Z\",\n        \"bounce_pct\": 5.4\n      },\n      \"complaint_metrics\": {\n        \"sealed\": true,\n        \"source\": \"esp.example.com/metrics/complaint/2026-06-26\",\n        \"timestamp\": \"2026-06-26T00:12:00Z\",\n        \"complaint_pct\": 0.04\n      },\n      \"placement_probe\": {\n        \"sealed\": true,\n        \"source\": \"seedlist.example.com/probe/def456\",\n        \"timestamp\": \"2026-06-26T00:13:00Z\",\n        \"inbox_placement_pct\": 62\n      }\n    },\n    \"verdict\": {\n      \"state\": \"escalate\",\n      \"confidence_window\": \"conflicted\",\n      \"reason\": \"bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe\"\n    },\n    \"recommendation\": null,\n    \"escalation_record\": {\n      \"reason\": \"bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe\",\n      \"signals\": {\n        \"postmaster_report\": {\n          \"sealed\": true,\n          \"source\": \"postmaster.example.com/domain/example.net\",\n          \"timestamp\": \"2026-06-26T00:10:00Z\",\n          \"reputation_score\": 92\n        },\n        \"bounce_metrics\": {\n          \"sealed\": true,\n          \"source\": \"esp.example.com/metrics/bounce/2026-06-26\",\n          \"timestamp\": \"2026-06-26T00:11:00Z\",\n          \"bounce_pct\": 5.4\n        },\n        \"complaint_metrics\": {\n          \"sealed\": true,\n          \"source\": \"esp.example.com/metrics/complaint/2026-06-26\",\n          \"timestamp\": \"2026-06-26T00:12:00Z\",\n          \"complaint_pct\": 0.04\n        },\n        \"placement_probe\": {\n          \"sealed\": true,\n          \"source\": \"seedlist.example.com/probe/def456\",\n          \"timestamp\": \"2026-06-26T00:13:00Z\",\n          \"inbox_placement_pct\": 62\n        }\n      }\n    },\n    \"dogfood\": {\n      \"package\": \"deliverability-judge\",\n      \"input\": \"evidence{postmaster_report,bounce_metrics,complaint_metrics,placement_probe} + policy\",\n      \"command\": \"runx skill <owner>/deliverability-judge@0.1.0 --json\",\n      \"receipt_ref\": null,\n      \"verify_verdict\": null,\n      \"harness_cases\": [\n        {\n          \"name\": \"sealed_healthy_signals_continue\",\n          \"expected_status\": \"sealed\"\n        },\n        {\n          \"name\": \"contradictory_signals_escalate\",\n          \"expected_status\": \"sealed\"\n        }\n      ]\n    },\n    \"effect_boundary\": \"read-only verdict; live throttle is a separate governed run dispatched by naming\"\n  },\n  \"report_md\": \"# Deliverability Judge Report\\n\\n- Package: deliverability-judge@0.1.0\\n- Verdict: escalate\\n- Confidence window: conflicted\\n- Reason: bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe\\n- Recommendation action: none\\n- Evidence hash: none\\n- Postmaster source: postmaster.example.com/domain/example.net\\n- Bounce source: esp.example.com/metrics/bounce/2026-06-26\\n- Complaint source: esp.example.com/metrics/complaint/2026-06-26\\n- Placement source: seedlist.example.com/probe/def456\\n- Refusal reason: bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe\\n- Harness cases: sealed_healthy_signals_continue and contradictory_signals_escalate\\n- Effect boundary: read-only recommendation only; no send, throttle, mutation, state, or authority mint.\\n\"\n}\n",
+    "structured_output": {
+      "escalation_record": {
+        "reason": "bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+        "signals": {
+          "bounce_metrics": {
+            "bounce_pct": 5.4,
+            "sealed": true,
+            "source": "esp.example.com/metrics/bounce/2026-06-26",
+            "timestamp": "2026-06-26T00:11:00Z"
+          },
+          "complaint_metrics": {
+            "complaint_pct": 0.04,
+            "sealed": true,
+            "source": "esp.example.com/metrics/complaint/2026-06-26",
+            "timestamp": "2026-06-26T00:12:00Z"
+          },
+          "placement_probe": {
+            "inbox_placement_pct": 62,
+            "sealed": true,
+            "source": "seedlist.example.com/probe/def456",
+            "timestamp": "2026-06-26T00:13:00Z"
+          },
+          "postmaster_report": {
+            "reputation_score": 92,
+            "sealed": true,
+            "source": "postmaster.example.com/domain/example.net",
+            "timestamp": "2026-06-26T00:10:00Z"
+          }
+        }
+      },
+      "evidence_json": {
+        "dogfood": {
+          "command": "runx skill <owner>/deliverability-judge@0.1.0 --json",
+          "harness_cases": [
+            {
+              "expected_status": "sealed",
+              "name": "sealed_healthy_signals_continue"
+            },
+            {
+              "expected_status": "sealed",
+              "name": "contradictory_signals_escalate"
+            }
+          ],
+          "input": "evidence{postmaster_report,bounce_metrics,complaint_metrics,placement_probe} + policy",
+          "package": "deliverability-judge",
+          "receipt_ref": null,
+          "verify_verdict": null
+        },
+        "effect_boundary": "read-only verdict; live throttle is a separate governed run dispatched by naming",
+        "escalation_record": {
+          "reason": "bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+          "signals": {
+            "bounce_metrics": {
+              "bounce_pct": 5.4,
+              "sealed": true,
+              "source": "esp.example.com/metrics/bounce/2026-06-26",
+              "timestamp": "2026-06-26T00:11:00Z"
+            },
+            "complaint_metrics": {
+              "complaint_pct": 0.04,
+              "sealed": true,
+              "source": "esp.example.com/metrics/complaint/2026-06-26",
+              "timestamp": "2026-06-26T00:12:00Z"
+            },
+            "placement_probe": {
+              "inbox_placement_pct": 62,
+              "sealed": true,
+              "source": "seedlist.example.com/probe/def456",
+              "timestamp": "2026-06-26T00:13:00Z"
+            },
+            "postmaster_report": {
+              "reputation_score": 92,
+              "sealed": true,
+              "source": "postmaster.example.com/domain/example.net",
+              "timestamp": "2026-06-26T00:10:00Z"
+            }
+          }
+        },
+        "observations": [
+          "verdict=escalate",
+          "confidence_window=conflicted",
+          "postmaster_report sealed=true source=postmaster.example.com/domain/example.net timestamp=2026-06-26T00:10:00Z reputation_score=92",
+          "bounce_metrics sealed=true source=esp.example.com/metrics/bounce/2026-06-26 timestamp=2026-06-26T00:11:00Z bounce_pct=5.4",
+          "complaint_metrics sealed=true source=esp.example.com/metrics/complaint/2026-06-26 timestamp=2026-06-26T00:12:00Z complaint_pct=0.04",
+          "placement_probe sealed=true source=seedlist.example.com/probe/def456 timestamp=2026-06-26T00:13:00Z inbox_placement_pct=62",
+          "recommendation_action=none",
+          "evidence_hash=none",
+          "refused_reason=bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+          "harness cases=sealed_healthy_signals_continue, contradictory_signals_escalate",
+          "receipt id=pending post-publish dogfood receipt"
+        ],
+        "policy": {
+          "max_bounce_pct": 2,
+          "max_complaint_pct": 0.1,
+          "min_inbox_placement_pct": 90,
+          "min_reputation_score": 80
+        },
+        "recommendation": null,
+        "schema": "deliverability.judge.evidence.v1",
+        "signals": {
+          "bounce_metrics": {
+            "bounce_pct": 5.4,
+            "sealed": true,
+            "source": "esp.example.com/metrics/bounce/2026-06-26",
+            "timestamp": "2026-06-26T00:11:00Z"
+          },
+          "complaint_metrics": {
+            "complaint_pct": 0.04,
+            "sealed": true,
+            "source": "esp.example.com/metrics/complaint/2026-06-26",
+            "timestamp": "2026-06-26T00:12:00Z"
+          },
+          "placement_probe": {
+            "inbox_placement_pct": 62,
+            "sealed": true,
+            "source": "seedlist.example.com/probe/def456",
+            "timestamp": "2026-06-26T00:13:00Z"
+          },
+          "postmaster_report": {
+            "reputation_score": 92,
+            "sealed": true,
+            "source": "postmaster.example.com/domain/example.net",
+            "timestamp": "2026-06-26T00:10:00Z"
+          }
+        },
+        "skill": {
+          "name": "deliverability-judge",
+          "version": "0.1.0"
+        },
+        "verdict": {
+          "confidence_window": "conflicted",
+          "reason": "bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+          "state": "escalate"
+        }
+      },
+      "recommendation": null,
+      "report_md": "# Deliverability Judge Report\n\n- Package: deliverability-judge@0.1.0\n- Verdict: escalate\n- Confidence window: conflicted\n- Reason: bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe\n- Recommendation action: none\n- Evidence hash: none\n- Postmaster source: postmaster.example.com/domain/example.net\n- Bounce source: esp.example.com/metrics/bounce/2026-06-26\n- Complaint source: esp.example.com/metrics/complaint/2026-06-26\n- Placement source: seedlist.example.com/probe/def456\n- Refusal reason: bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe\n- Harness cases: sealed_healthy_signals_continue and contradictory_signals_escalate\n- Effect boundary: read-only recommendation only; no send, throttle, mutation, state, or authority mint.\n",
+      "verdict": {
+        "confidence_window": "conflicted",
+        "reason": "bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+        "state": "escalate"
+      }
+    }
+  },
+  "payload": {
+    "escalation_record": {
+      "reason": "bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+      "signals": {
+        "bounce_metrics": {
+          "bounce_pct": 5.4,
+          "sealed": true,
+          "source": "esp.example.com/metrics/bounce/2026-06-26",
+          "timestamp": "2026-06-26T00:11:00Z"
+        },
+        "complaint_metrics": {
+          "complaint_pct": 0.04,
+          "sealed": true,
+          "source": "esp.example.com/metrics/complaint/2026-06-26",
+          "timestamp": "2026-06-26T00:12:00Z"
+        },
+        "placement_probe": {
+          "inbox_placement_pct": 62,
+          "sealed": true,
+          "source": "seedlist.example.com/probe/def456",
+          "timestamp": "2026-06-26T00:13:00Z"
+        },
+        "postmaster_report": {
+          "reputation_score": 92,
+          "sealed": true,
+          "source": "postmaster.example.com/domain/example.net",
+          "timestamp": "2026-06-26T00:10:00Z"
+        }
+      }
+    },
+    "evidence_json": {
+      "dogfood": {
+        "command": "runx skill <owner>/deliverability-judge@0.1.0 --json",
+        "harness_cases": [
+          {
+            "expected_status": "sealed",
+            "name": "sealed_healthy_signals_continue"
+          },
+          {
+            "expected_status": "sealed",
+            "name": "contradictory_signals_escalate"
+          }
+        ],
+        "input": "evidence{postmaster_report,bounce_metrics,complaint_metrics,placement_probe} + policy",
+        "package": "deliverability-judge",
+        "receipt_ref": null,
+        "verify_verdict": null
+      },
+      "effect_boundary": "read-only verdict; live throttle is a separate governed run dispatched by naming",
+      "escalation_record": {
+        "reason": "bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+        "signals": {
+          "bounce_metrics": {
+            "bounce_pct": 5.4,
+            "sealed": true,
+            "source": "esp.example.com/metrics/bounce/2026-06-26",
+            "timestamp": "2026-06-26T00:11:00Z"
+          },
+          "complaint_metrics": {
+            "complaint_pct": 0.04,
+            "sealed": true,
+            "source": "esp.example.com/metrics/complaint/2026-06-26",
+            "timestamp": "2026-06-26T00:12:00Z"
+          },
+          "placement_probe": {
+            "inbox_placement_pct": 62,
+            "sealed": true,
+            "source": "seedlist.example.com/probe/def456",
+            "timestamp": "2026-06-26T00:13:00Z"
+          },
+          "postmaster_report": {
+            "reputation_score": 92,
+            "sealed": true,
+            "source": "postmaster.example.com/domain/example.net",
+            "timestamp": "2026-06-26T00:10:00Z"
+          }
+        }
+      },
+      "observations": [
+        "verdict=escalate",
+        "confidence_window=conflicted",
+        "postmaster_report sealed=true source=postmaster.example.com/domain/example.net timestamp=2026-06-26T00:10:00Z reputation_score=92",
+        "bounce_metrics sealed=true source=esp.example.com/metrics/bounce/2026-06-26 timestamp=2026-06-26T00:11:00Z bounce_pct=5.4",
+        "complaint_metrics sealed=true source=esp.example.com/metrics/complaint/2026-06-26 timestamp=2026-06-26T00:12:00Z complaint_pct=0.04",
+        "placement_probe sealed=true source=seedlist.example.com/probe/def456 timestamp=2026-06-26T00:13:00Z inbox_placement_pct=62",
+        "recommendation_action=none",
+        "evidence_hash=none",
+        "refused_reason=bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+        "harness cases=sealed_healthy_signals_continue, contradictory_signals_escalate",
+        "receipt id=pending post-publish dogfood receipt"
+      ],
+      "policy": {
+        "max_bounce_pct": 2,
+        "max_complaint_pct": 0.1,
+        "min_inbox_placement_pct": 90,
+        "min_reputation_score": 80
+      },
+      "recommendation": null,
+      "schema": "deliverability.judge.evidence.v1",
+      "signals": {
+        "bounce_metrics": {
+          "bounce_pct": 5.4,
+          "sealed": true,
+          "source": "esp.example.com/metrics/bounce/2026-06-26",
+          "timestamp": "2026-06-26T00:11:00Z"
+        },
+        "complaint_metrics": {
+          "complaint_pct": 0.04,
+          "sealed": true,
+          "source": "esp.example.com/metrics/complaint/2026-06-26",
+          "timestamp": "2026-06-26T00:12:00Z"
+        },
+        "placement_probe": {
+          "inbox_placement_pct": 62,
+          "sealed": true,
+          "source": "seedlist.example.com/probe/def456",
+          "timestamp": "2026-06-26T00:13:00Z"
+        },
+        "postmaster_report": {
+          "reputation_score": 92,
+          "sealed": true,
+          "source": "postmaster.example.com/domain/example.net",
+          "timestamp": "2026-06-26T00:10:00Z"
+        }
+      },
+      "skill": {
+        "name": "deliverability-judge",
+        "version": "0.1.0"
+      },
+      "verdict": {
+        "confidence_window": "conflicted",
+        "reason": "bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+        "state": "escalate"
+      }
+    },
+    "recommendation": null,
+    "report_md": "# Deliverability Judge Report\n\n- Package: deliverability-judge@0.1.0\n- Verdict: escalate\n- Confidence window: conflicted\n- Reason: bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe\n- Recommendation action: none\n- Evidence hash: none\n- Postmaster source: postmaster.example.com/domain/example.net\n- Bounce source: esp.example.com/metrics/bounce/2026-06-26\n- Complaint source: esp.example.com/metrics/complaint/2026-06-26\n- Placement source: seedlist.example.com/probe/def456\n- Refusal reason: bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe\n- Harness cases: sealed_healthy_signals_continue and contradictory_signals_escalate\n- Effect boundary: read-only recommendation only; no send, throttle, mutation, state, or authority mint.\n",
+    "verdict": {
+      "confidence_window": "conflicted",
+      "reason": "bounce_pct 5.4 exceeds 2; inbox_placement_pct 62 below 90; high reputation conflicts with high bounce rate; high reputation conflicts with weak placement probe",
+      "state": "escalate"
+    }
+  },
+  "receipt": {
+    "acts": [
+      {
+        "artifact_refs": [],
+        "closure": {
+          "closed_at": "2026-06-26T02:27:49.952Z",
+          "disposition": "closed",
+          "reason_code": "process_exit",
+          "summary": "cli-tool exited successfully"
+        },
+        "criterion_bindings": [
+          {
+            "criterion_id": "process_exit",
+            "evidence_refs": [],
+            "status": "verified",
+            "summary": "cli-tool exited successfully",
+            "verification_refs": []
+          }
+        ],
+        "form": "observation",
+        "id": "act_default",
+        "intent": {
+          "constraints": [],
+          "derived_from": [],
+          "legitimacy": "Runtime graph execution was admitted by the local harness",
+          "purpose": "Run graph step default",
+          "success_criteria": [
+            {
+              "criterion_id": "process_exit",
+              "required": true,
+              "statement": "cli-tool exits successfully"
+            }
+          ]
+        },
+        "source_refs": [],
+        "summary": "Executed graph step default",
+        "target_refs": []
+      }
+    ],
+    "authority": {
+      "actor_ref": {
+        "type": "principal",
+        "uri": "runx:principal:local_runtime"
+      },
+      "attenuation": {
+        "parent_authority_ref": null,
+        "subset_proof": null
+      },
+      "authority_proof_refs": [],
+      "enforcement": {
+        "profile_hash": "sha256:runtime-skeleton-enforcement",
+        "redaction_refs": [],
+        "setup_refs": [],
+        "teardown_refs": []
+      },
+      "grant_refs": [],
+      "scope_refs": [],
+      "terms": []
+    },
+    "canonicalization": "runx.receipt.c14n.v1",
+    "created_at": "2026-06-26T02:27:49.952Z",
+    "decisions": [
+      {
+        "artifact_refs": [],
+        "choice": "open",
+        "closure": null,
+        "decision_id": "dec_default",
+        "inputs": {
+          "opportunity_refs": [],
+          "selection_ref": null,
+          "signal_refs": [],
+          "target_ref": null
+        },
+        "justification": {
+          "evidence_refs": [],
+          "summary": "runtime graph planner selected this node"
+        },
+        "proposed_intent": {
+          "constraints": [],
+          "derived_from": [],
+          "legitimacy": "Local graph execution requested this node",
+          "purpose": "Open runtime node default",
+          "success_criteria": []
+        },
+        "selected_act_id": "act_default",
+        "selected_harness_ref": null
+      }
+    ],
+    "digest": "sha256:0aec17c37e5c63e7930b70f9c34480fbcab9a46ab9e932c8002f28ee04b2e0fc",
+    "id": "sha256:5f9afd29fa8f0352e70491f991f9b47e6156a9f714986d3a88b762b1a049a489",
+    "idempotency": {
+      "content_hash": "sha256:run_default_b71dad76243f-default-content",
+      "intent_key": "sha256:run_default_b71dad76243f-default-intent",
+      "trigger_fingerprint": "sha256:run_default_b71dad76243f-default-trigger"
+    },
+    "issuer": {
+      "kid": "runx-demo-key",
+      "public_key_sha256": "sha256:3097e2dee2cb4a34b53840cdb705aed71067c36f68db0e0f559c3f3fa043315f",
+      "type": "hosted"
+    },
+    "lineage": {
+      "children": [],
+      "sync": []
+    },
+    "schema": "runx.receipt.v1",
+    "seal": {
+      "closed_at": "2026-06-26T02:27:49.952Z",
+      "criteria": [
+        {
+          "criterion_id": "process_exit",
+          "evidence_refs": [],
+          "status": "verified",
+          "summary": "cli-tool exited successfully",
+          "verification_refs": []
+        }
+      ],
+      "disposition": "closed",
+      "last_observed_at": "2026-06-26T02:27:49.952Z",
+      "reason_code": "process_closed",
+      "summary": "cli-tool default completed"
+    },
+    "signals": [],
+    "signature": {
+      "alg": "Ed25519",
+      "value": "base64:d4Tak3p67AGWbyN6xXGUKMYbN6Ck0KCYsJyCeTr-ceim0mXtwnbVhhVNYSXVBIz2bNbVzEEa6-VSckRPuc17BA"
+    },
+    "subject": {
+      "commitments": [],
+      "kind": "skill",
+      "ref": {
+        "type": "harness",
+        "uri": "hrn_run_default_b71dad76243f_default"
+      }
+    }
+  },
+  "receipt_id": "sha256:5f9afd29fa8f0352e70491f991f9b47e6156a9f714986d3a88b762b1a049a489",
+  "run_id": "run_default_b71dad76243f",
+  "schema": "runx.skill_run.v1",
+  "skill_name": "deliverability-judge",
+  "status": "sealed"
+}
