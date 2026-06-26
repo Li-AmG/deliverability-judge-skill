@@ -39,3 +39,7 @@
 - GitHub Actions verify status: unknown
 
 - Summary: deliverability-judge is a read-only runx skill that fuses sealed postmaster, bounce, complaint, and placement-probe signals into a deliverability verdict, emits a continue recommendation only for healthy non-contradictory evidence, and escalates contradictory or incomplete inputs without sending, throttling, mutating, or minting authority.
+
+- GitHub Actions harness status: passed
+- GitHub Actions dogfood receipt_ref: runx:receipt:sha256:f954ce4145841b20cb2daf571e9a9585bde4050ea6b3f5115db8fd385f227cf6
+- GitHub Actions verify status: unknown
