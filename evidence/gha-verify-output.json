@@ -3,7 +3,7 @@
   "signature_mode": "local-development",
   "trees": [
     {
-      "root_receipt_id": "sha256:1854e40ebad01f30538928b48d26f009177db088c924ccd769ff038fb46bdcc0",
+      "root_receipt_id": "sha256:a75c794f20bcb01bd508db9f72d6604b5c499bb85065ea031fbbad979ac78632",
       "receipt_count": 1,
       "parent_missing": null,
       "valid": false,
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "root_receipt_id": "sha256:4d118a3bab2e7b0f84896cb4ed26099616d03057c5563aa1c9865f6c601624a7",
+      "root_receipt_id": "sha256:d49b68ad2e1f0eac63ed4bbd771ddb9fc53189a4826e4f145b0a70675dd6021e",
       "receipt_count": 1,
       "parent_missing": null,
       "valid": false,
@@ -29,20 +29,7 @@
       ]
     },
     {
-      "root_receipt_id": "sha256:6294b3bd469316191e011ca13c896cff398dfdd96b3229fc0921d64d5471250f",
-      "receipt_count": 1,
-      "parent_missing": null,
-      "valid": false,
-      "findings": [
-        {
-          "code": "SignatureKeyMissing",
-          "path": "issuer",
-          "message": "signature verifier could not resolve the issuer key"
-        }
-      ]
-    },
-    {
-      "root_receipt_id": "sha256:a5a63141c11c5bc4b35912423642525614ef79b7df6d0ba1790a4e5994edb122",
+      "root_receipt_id": "sha256:f27c42d7f660383ff4a19ec6034c94892070f27a3f28a7b12a8d957aee56e7e1",
       "receipt_count": 1,
       "parent_missing": null,
       "valid": false,

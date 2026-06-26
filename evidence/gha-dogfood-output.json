@@ -1,6 +1,6 @@
 {
   "closure": {
-    "closed_at": "2026-06-26T02:31:03.938Z",
+    "closed_at": "2026-06-26T02:31:52.958Z",
     "disposition": "closed",
     "reason_code": "process_closed",
     "summary": "cli-tool default completed"
@@ -444,7 +444,7 @@
       {
         "artifact_refs": [],
         "closure": {
-          "closed_at": "2026-06-26T02:31:03.938Z",
+          "closed_at": "2026-06-26T02:31:52.958Z",
           "disposition": "closed",
           "reason_code": "process_exit",
           "summary": "cli-tool exited successfully"
@@ -499,7 +499,7 @@
       "terms": []
     },
     "canonicalization": "runx.receipt.c14n.v1",
-    "created_at": "2026-06-26T02:31:03.938Z",
+    "created_at": "2026-06-26T02:31:52.958Z",
     "decisions": [
       {
         "artifact_refs": [],
@@ -527,8 +527,8 @@
         "selected_harness_ref": null
       }
     ],
-    "digest": "sha256:12171b661279eb74761ba5bde91ba2af25ac4e830c073e2440c9e32db0bb70a7",
-    "id": "sha256:a5a63141c11c5bc4b35912423642525614ef79b7df6d0ba1790a4e5994edb122",
+    "digest": "sha256:cb8b948496abc1b8349e1f6bf1cc0ada2cecb5cdbe37a2b7a61101c1d03c9e1c",
+    "id": "sha256:a75c794f20bcb01bd508db9f72d6604b5c499bb85065ea031fbbad979ac78632",
     "idempotency": {
       "content_hash": "sha256:run_default_b71dad76243f-default-content",
       "intent_key": "sha256:run_default_b71dad76243f-default-intent",
@@ -545,7 +545,7 @@
     },
     "schema": "runx.receipt.v1",
     "seal": {
-      "closed_at": "2026-06-26T02:31:03.938Z",
+      "closed_at": "2026-06-26T02:31:52.958Z",
       "criteria": [
         {
           "criterion_id": "process_exit",
@@ -556,14 +556,14 @@
         }
       ],
       "disposition": "closed",
-      "last_observed_at": "2026-06-26T02:31:03.938Z",
+      "last_observed_at": "2026-06-26T02:31:52.958Z",
       "reason_code": "process_closed",
       "summary": "cli-tool default completed"
     },
     "signals": [],
     "signature": {
       "alg": "Ed25519",
-      "value": "base64:EojWOI6sBM1iXWpPk8wqUh_C5_0SGtJnt_u_o6pti7um1_3bOKVOOvvi4DdFPpG_yNFhJoOd1Jq_riW2atTuAA"
+      "value": "base64:jT8QZsHpBhFzhV_RrxaC4paw3UPKY4PUT93p-2dH8ZPo-Wa3uyrqQ7ROAmeW0n0Pu1GApdae2haYkEKnOa66Dg"
     },
     "subject": {
       "commitments": [],
@@ -574,7 +574,7 @@
       }
     }
   },
-  "receipt_id": "sha256:a5a63141c11c5bc4b35912423642525614ef79b7df6d0ba1790a4e5994edb122",
+  "receipt_id": "sha256:a75c794f20bcb01bd508db9f72d6604b5c499bb85065ea031fbbad979ac78632",
   "run_id": "run_default_b71dad76243f",
   "schema": "runx.skill_run.v1",
   "skill_name": "deliverability-judge",
