@@ -761,5 +761,6 @@
       "unreadable_files": [],
       "valid": false
     }
-  }
+  },
+  "summary": "deliverability-judge is a read-only runx skill that fuses sealed postmaster, bounce, complaint, and placement-probe signals into a deliverability verdict, emits a continue recommendation only for healthy non-contradictory evidence, and escalates contradictory or incomplete inputs without sending, throttling, mutating, or minting authority."
 }
