@@ -76,10 +76,11 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add evidence
+          git add evidence/evidence.json evidence/verification.json evidence/report.md evidence/gha-runx-version.txt evidence/gha-doctor.json evidence/gha-harness-output.json evidence/gha-dogfood-output.json evidence/gha-verify-output.json
           if git diff --cached --quiet; then
             echo "No evidence changes."
           else
             git commit -m "Add GitHub Actions runx evidence"
             git push
           fi
+
